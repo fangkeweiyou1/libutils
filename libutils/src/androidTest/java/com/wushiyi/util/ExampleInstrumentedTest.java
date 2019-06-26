@@ -1,4 +1,4 @@
-package com.zhang.libutis;
+package com.wushiyi.util;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();
 
-        assertEquals("com.zhang.libutis.test", appContext.getPackageName());
+        assertEquals("com.wushiyi.util.test", appContext.getPackageName());
     }
 }

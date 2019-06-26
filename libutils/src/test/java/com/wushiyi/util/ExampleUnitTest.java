@@ -1,4 +1,4 @@
-package com.zhang.libutis;
+package com.wushiyi.util;
 
 import org.junit.Test;
 
