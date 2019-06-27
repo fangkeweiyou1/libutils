@@ -1,6 +1,5 @@
 package com.wushiyi.util
 
-import android.content.Context
 import android.os.Looper
 import android.widget.Toast
 
@@ -8,11 +7,10 @@ import android.widget.Toast
  * Created by zhangyuncai on 2019/6/26.
  * toast工具类
  */
-private lateinit var toastContext: Context
-
-fun setToastContext(context: Context) {
-    toastContext = context
-}
+private val toastContext by lazy { UtilInit.utilContext }
+//fun setToastContext(context: Context) {
+//    toastContext = context
+//}
 
 
 /**

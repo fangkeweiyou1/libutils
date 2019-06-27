@@ -13,29 +13,17 @@ import kotlin.reflect.KProperty
 class Preference<T>(val name: String, private val default: T) {
 
     companion object {
-        private lateinit var preferenceContext: Context
-        private lateinit var preferenceFileName: String
+        //上下文
+        private val preferenceContext by lazy { UtilInit.utilContext }
+        //默认文件名称为应用名称
+        internal var preferenceFileName: String = ""
+            get() {
+                if (field.isNullOrEmpty()) {
+                    field = AppUtil.getAppName()
+                }
+                return field
+            }
 
-        /**
-         * 设置上下文
-         * @param context 上下文
-         * 文件名称为包名最后一个单词,例如包名为"com.baidu.qq",那么文件名称为"qq"
-         */
-        fun initPreference(context: Context) {
-            preferenceContext=context
-            val packageName = preferenceContext.packageName
-            val lastWord = packageName.split(".").last()
-            initPreference(context,lastWord)
-        }
-        /**
-         * 设置上下文
-         * @param context 上下文
-         * @param fileName 缓存文件名称 exp:"lovers"
-         */
-        fun initPreference(context: Context, fileName: String) {
-            preferenceContext=context
-            preferenceFileName=fileName
-        }
         private val prefs: SharedPreferences by lazy {
             preferenceContext.getSharedPreferences(preferenceFileName, Context.MODE_PRIVATE)
         }
