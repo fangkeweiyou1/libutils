@@ -10,6 +10,7 @@ object UtilInit {
     internal lateinit var utilContext: Context
     fun initUtil(context: Context) {
         utilContext=context
+        SharedPreferencesUtils.initSharedPreferences()
     }
 
     /**
@@ -17,5 +18,6 @@ object UtilInit {
      */
     fun setPreferenceFileName(preferenceFileName: String) {
         Preference.preferenceFileName = preferenceFileName
+        SharedPreferencesUtils.setPreferenceFileName(preferenceFileName)
     }
 }
