@@ -84,6 +84,15 @@ public class SharedPreferencesUtils {
         return sp.getString(key, "");
     }
 
+    /**
+     * 读取string
+     *
+     * @param key
+     * @return 默认为 defValue
+     */
+    public static String loadString(String key,String defValue) {
+        return sp.getString(key, defValue);
+    }
 
     /**
      * 保存int
@@ -104,6 +113,16 @@ public class SharedPreferencesUtils {
      */
     public static int loadInt(String key) {
         return sp.getInt(key, 0);
+    }
+
+    /**
+     * 读取int
+     *
+     * @param key
+     * @return 默认为defValue
+     */
+    public static int loadInt(String key,int defValue) {
+        return sp.getInt(key, defValue);
     }
 
 
