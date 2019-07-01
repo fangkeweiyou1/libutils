@@ -1,5 +1,6 @@
 package com.zhang.jitdemo
 
+import android.app.Activity
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
@@ -21,6 +22,16 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        val context = bt_main_en.context
+        if (context is Activity) {
+            fffBug("view上下文是Activity")
+        } else {
+            fffBug("view上下文不是Activity")
+        }
+
+
+
         showToast("设置成功!")
 
         bt_main_zh.setOnClickListener {
@@ -31,6 +42,7 @@ class MainActivity : AppCompatActivity() {
             LocalManageUtil.setAppLanguageSelect(true)
             changeLanguage()
         }
+
 
 //2409:8809:8381:1d86:1172:e96f:eb51:bc49
         fffBug("连接成功:${NetworkUtil.getLocalIpAddress()}")

@@ -7,7 +7,7 @@ import android.view.View
 /**
  * Created by zhangyuncai on 2019/6/26.
  */
-class LocalClickable(val listener: View.OnClickListener, val localTextColor: Int) : ClickableSpan() {
+open class LocalClickable(val listener: View.OnClickListener, val localTextColor: Int) : ClickableSpan() {
     override fun onClick(widget: View) {
         listener.onClick(widget)
     }

@@ -10,7 +10,7 @@ import kotlin.reflect.KProperty
  * Created by chenxz on 2018/4/21.
  * kotlin委托属性+SharedPreference实例
  */
-class Preference<T>(val name: String, private val default: T) {
+open class Preference<T>(val name: String, private val default: T) {
 
     companion object {
         //上下文

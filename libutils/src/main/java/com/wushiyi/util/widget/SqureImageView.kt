@@ -8,7 +8,7 @@ import android.widget.ImageView
  * Created by zhangyuncai on 2019/6/27.
  * 宽高相等的ImageView
  */
-class SqureImageView @JvmOverloads constructor(
+open class SqureImageView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : ImageView(context, attrs, defStyleAttr) {
 

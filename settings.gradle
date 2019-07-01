@@ -1,1 +1,2 @@
-include ':app', ':libutils'
+include ':app'
+include ':libutils'

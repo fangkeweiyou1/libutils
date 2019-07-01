@@ -8,7 +8,7 @@ import android.view.View
  * Created by zhangyuncai on 2019/6/27.
  * 高度==状态栏高度的view
  */
-class StatusHeightView @JvmOverloads constructor(
+open class StatusHeightView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null, defStyleAttr: Int = 0
 ) : View(context, attrs, defStyleAttr) {
 
