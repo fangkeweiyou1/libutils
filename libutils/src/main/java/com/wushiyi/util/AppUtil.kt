@@ -47,7 +47,7 @@ object AppUtil {
         if (Build.VERSION.SDK_INT >= 28) {
             return packageInfo.longVersionCode
         }
-        return packageInfo.versionCode as Long
+        return packageInfo.versionCode.toLong()
     }
 
     /**
