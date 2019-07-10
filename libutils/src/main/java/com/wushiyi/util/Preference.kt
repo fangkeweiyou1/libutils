@@ -19,7 +19,7 @@ open class Preference<T>(val name: String, private val default: T) {
         internal var preferenceFileName: String = ""
             get() {
                 if (field.isNullOrEmpty()) {
-                    field = AppUtil.getAppName()
+                    field = AppUtil.getPackageNameLastChar()
                 }
                 return field
             }

@@ -10,7 +10,7 @@ object AppUtil {
     private val appContext by lazy { UtilInit.utilContext }
 
     /**
-     * 获取应用名称
+     * 获取应用名称,如果应用没有设置appname,那么就会闪退
      */
     fun getAppName(): String {
         val packageManager = appContext.getPackageManager()
@@ -18,6 +18,7 @@ object AppUtil {
             appContext.getPackageName(), 0
         )
         val labelRes = packageInfo.applicationInfo.labelRes
+        packageInfo.applicationInfo.labelRes
         return appContext.getResources().getString(labelRes)
     }
 
@@ -62,5 +63,17 @@ object AppUtil {
             appContext.getPackageName(), 0
         )
         return packageInfo.packageName
+    }
+
+    /**
+     * 获取包名中最后一个字符串
+     */
+    fun getPackageNameLastChar(): String {
+        val packageManager = appContext.getPackageManager()
+        val packageInfo = packageManager.getPackageInfo(
+            appContext.getPackageName(), 0
+        )
+        val charList = packageInfo.packageName.split(".")
+        return charList.last()
     }
 }

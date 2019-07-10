@@ -22,8 +22,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         DisplayUtil.dip2px(300f)
-
-        fffBug("applicationId:${AppUtil.getPackageName()}")
+        val char = AppUtil.getPackageNameLastChar()
+        fffBug("char:${char}")
     }
 
     fun changeLanguage() {

@@ -22,7 +22,7 @@ public class SharedPreferencesUtils {
 
     private static String getPreferenceFileName() {
         if (TextUtils.isEmpty(preferenceFileName)) {
-            preferenceFileName = AppUtil.INSTANCE.getAppName();
+            preferenceFileName = AppUtil.INSTANCE.getPackageNameLastChar();
         }
         return preferenceFileName;
     }

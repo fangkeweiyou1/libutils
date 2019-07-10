@@ -16,7 +16,7 @@ object FileUtil {
     internal var fileDirName: String = ""
         get() {
             if (field.isNullOrEmpty()) {
-                field = AppUtil.getAppName()
+                field = AppUtil.getPackageNameLastChar()
             }
             return field
         }
