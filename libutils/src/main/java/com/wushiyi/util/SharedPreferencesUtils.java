@@ -27,14 +27,22 @@ public class SharedPreferencesUtils {
         return preferenceFileName;
     }
 
+    /**
+     * 这个要优先调用
+     * @param preferenceFileName
+     */
     public static void setPreferenceFileName(String preferenceFileName) {
         SharedPreferencesUtils.preferenceFileName = preferenceFileName;
     }
 
     public static void initSharedPreferences() {
         if (sp == null) {
-            sp = getContext().getApplicationContext().getSharedPreferences(preferenceFileName, SP_MODE);
+            sp = getSharedPreferences();
         }
+    }
+
+    public static SharedPreferences getSharedPreferences() {
+        return getContext().getApplicationContext().getSharedPreferences(getPreferenceFileName(), SP_MODE);
     }
 
     /**
@@ -90,7 +98,7 @@ public class SharedPreferencesUtils {
      * @param key
      * @return 默认为 defValue
      */
-    public static String loadString(String key,String defValue) {
+    public static String loadString(String key, String defValue) {
         return sp.getString(key, defValue);
     }
 
@@ -121,7 +129,7 @@ public class SharedPreferencesUtils {
      * @param key
      * @return 默认为defValue
      */
-    public static int loadInt(String key,int defValue) {
+    public static int loadInt(String key, int defValue) {
         return sp.getInt(key, defValue);
     }
 

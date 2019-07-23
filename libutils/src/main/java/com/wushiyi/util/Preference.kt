@@ -1,7 +1,6 @@
 package com.wushiyi.util
 
 import android.annotation.SuppressLint
-import android.content.Context
 import android.content.SharedPreferences
 import java.io.*
 import kotlin.reflect.KProperty
@@ -15,17 +14,9 @@ open class Preference<T>(val name: String, private val default: T) {
     companion object {
         //上下文
         private val preferenceContext by lazy { UtilInit.utilContext }
-        //默认文件名称为应用名称
-        internal var preferenceFileName: String = ""
-            get() {
-                if (field.isNullOrEmpty()) {
-                    field = AppUtil.getPackageNameLastChar()
-                }
-                return field
-            }
 
         private val prefs: SharedPreferences by lazy {
-            preferenceContext.getSharedPreferences(preferenceFileName, Context.MODE_PRIVATE)
+            SharedPreferencesUtils.getSharedPreferences()
         }
 
         /**

@@ -13,5 +13,7 @@ public class TestMain {
         String urlDecoder = URLEncoderUtil.INSTANCE.toURLDecoder(urlEncoded);
         out.println("-----------------<<<>>>--------------------urlEncoded:" + urlEncoded);
         out.println("-----------------<<<>>>--------------------urlDecoder:" + urlDecoder);
+        out.println("-----------------<<<>>>--------------------1/3:" + (1/3));
+        out.println("-----------------<<<>>>--------------------1/3:" + (1/3f));
     }
 }

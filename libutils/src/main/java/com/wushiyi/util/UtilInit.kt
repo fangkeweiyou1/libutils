@@ -17,7 +17,6 @@ object UtilInit {
      * 设置数据库名称
      */
     fun setPreferenceFileName(preferenceFileName: String) {
-        Preference.preferenceFileName = preferenceFileName
         SharedPreferencesUtils.setPreferenceFileName(preferenceFileName)
     }
 }
