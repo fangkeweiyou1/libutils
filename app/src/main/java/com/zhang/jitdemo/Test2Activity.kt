@@ -23,6 +23,7 @@ class Test2Activity :AppCompatActivity(){
         name="谷歌"
         val string = SharedPreferencesUtils.loadString("name")
         eeeBug("string:$string")
+        val jj="(1[0-9][0-9]|15[0-9]|18[0-9])\\d{8}"
 
     }
 }
