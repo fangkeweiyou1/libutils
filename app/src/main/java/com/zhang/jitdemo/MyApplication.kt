@@ -2,18 +2,25 @@ package com.zhang.jitdemo
 
 import android.app.Application
 import com.wushiyi.util.UtilInit
-import com.wushiyi.util.ValidatorUtil
-import com.wushiyi.util.eeeBug
 
 /**
  * Created by zhangyuncai on 2019/6/28.
  */
-class MyApplication:Application() {
+class MyApplication : Application() {
     override fun onCreate() {
         super.onCreate()
         UtilInit.initUtil(this)
 
-        val mobile="16620046114"
-        eeeBug("是否是手机号:${ValidatorUtil.isMobile(mobile)}")
+        val animal = Animal()
+        try {
+
+            val clazz = Animal::class.java
+            val method = clazz.getDeclaredMethod("getDog")
+            method.isAccessible = true
+            val dog = method.invoke(animal) as Dog
+            println("dog:${dog.name}")
+        } catch (e: Exception) {
+            e.printStackTrace()
+        }
     }
 }
