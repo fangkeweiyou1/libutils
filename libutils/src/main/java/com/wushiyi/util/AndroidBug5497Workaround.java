@@ -9,6 +9,7 @@ import android.widget.FrameLayout;
 
 /**
  * Created by zhangyuncai on 2019/7/17.
+ * 解决全屏模式下,webview,键盘弹起不能将底部button顶起来
  */
 public class AndroidBug5497Workaround {
     public static void assistActivity(Activity activity) {

@@ -1,9 +1,11 @@
 package com.wushiyi.util;
 
+import android.Manifest;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.os.Build;
 import android.provider.Settings;
+import android.support.v4.content.ContextCompat;
 import android.telephony.TelephonyManager;
 
 import java.security.MessageDigest;
@@ -77,7 +79,13 @@ public class DeviceIdUtil {
         try {
             TelephonyManager tm = (TelephonyManager)
                     context.getSystemService(Context.TELEPHONY_SERVICE);
-            return tm.getDeviceId();
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+                if (ContextCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) >= 0) {
+                    return tm.getDeviceId();
+                }
+            } else {
+                return tm.getDeviceId();
+            }
         } catch (Exception ex) {
             ex.printStackTrace();
         }
@@ -141,30 +149,31 @@ public class DeviceIdUtil {
 
     /**
      * 取SHA1
+     *
      * @param data 数据
      * @return 对应的hash值
      */
-    private static byte[] getHashByString(String data)
-    {
-        try{
+    private static byte[] getHashByString(String data) {
+        try {
             MessageDigest messageDigest = MessageDigest.getInstance("SHA1");
             messageDigest.reset();
             messageDigest.update(data.getBytes("UTF-8"));
             return messageDigest.digest();
-        } catch (Exception e){
+        } catch (Exception e) {
             return "".getBytes();
         }
     }
 
     /**
      * 转16进制字符串
+     *
      * @param data 数据
      * @return 16进制字符串
      */
-    private static String bytesToHex(byte[] data){
+    private static String bytesToHex(byte[] data) {
         StringBuilder sb = new StringBuilder();
         String stmp;
-        for (int n = 0; n < data.length; n++){
+        for (int n = 0; n < data.length; n++) {
             stmp = (Integer.toHexString(data[n] & 0xFF));
             if (stmp.length() == 1)
                 sb.append("0");

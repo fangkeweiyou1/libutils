@@ -15,5 +15,5 @@ fun fffBug(content: Any) {
 }
 
 fun eeeBug(content: Any) {
-    println("----------->>>>>>>>-----------:${content.toString()}")
+    println("-->>-->>--:${content.toString()}")
 }

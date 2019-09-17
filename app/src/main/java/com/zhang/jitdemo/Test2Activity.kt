@@ -1,7 +1,10 @@
 package com.zhang.jitdemo
 
+import android.Manifest
 import android.graphics.Color
 import android.os.Bundle
+import android.support.v4.app.ActivityCompat
+import android.support.v4.content.ContextCompat
 import android.support.v4.view.PagerAdapter
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
@@ -9,8 +12,8 @@ import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
-import com.wushiyi.util.eeeBug
-import java.util.*
+import com.wushiyi.util.DeviceIdUtil
+import com.wushiyi.util.fffBug
 
 /**
  * Created by zhangyuncai on 2019/7/20.
@@ -21,23 +24,12 @@ class Test2Activity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_test2)
 
-        val map:MutableMap<String,String>
-        map= mutableMapOf()
-        map.put("小明1","1234")
-        map.put("小明2","1234")
-        map.put("小明3","1234")
-        map.put("小明4","1234")
-        eeeBug("map:${map}")
+        if (ContextCompat.checkSelfPermission(this, Manifest.permission.READ_PHONE_STATE) < 0) {
+            ActivityCompat.requestPermissions(this, arrayOf(Manifest.permission.READ_PHONE_STATE), 99);
+        }
+        val deviceId = DeviceIdUtil.getDeviceId(this)
+        fffBug("deviceId:${deviceId}")
 
-        //有效期
-        var currentTime = Date().time
-        eeeBug("currentTime:${currentTime}")
-        currentTime++
-        eeeBug("currentTime:${currentTime}")
-        val beijia=(1000L * 60 * 60 * 24 * 30)
-        eeeBug("beijia:${beijia}")
-        var resultTime = currentTime + beijia
-        eeeBug("resultTime:${resultTime}")
     }
 
     inner class MyPagerAdapter : PagerAdapter() {
@@ -63,7 +55,7 @@ class Test2Activity : AppCompatActivity() {
                 }
             }
             view.run {
-                layoutManager = LinearLayoutManager(this@Test2Activity)
+                layoutManager = LinearLayoutManager(this@Test2Activity!!)
                 adapter = MyAdapter()
                 addItemDecoration(DividerItemDecoration(this@Test2Activity, DividerItemDecoration.VERTICAL))
 
@@ -81,7 +73,7 @@ class Test2Activity : AppCompatActivity() {
 
     inner class MyAdapter : RecyclerView.Adapter<MyAdapter.MyViewHolder>() {
         override fun onCreateViewHolder(p0: ViewGroup, p1: Int): MyViewHolder {
-            val view=       layoutInflater.inflate(R.layout.item_test2_adapter, null)
+            val view = layoutInflater.inflate(R.layout.item_test2_adapter, null)
             return MyViewHolder(view)
         }
 

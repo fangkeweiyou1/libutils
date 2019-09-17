@@ -12,7 +12,7 @@ object LogUtil {
      */
     var debug = true
 
-    private val TAG = "----------->>>>>>>>-----------"
+    private val TAG = "-->>-->>--"
     private val LEVEL_I = "i"
     private val LEVEL_D = "d"
     private val LEVEL_W = "w"

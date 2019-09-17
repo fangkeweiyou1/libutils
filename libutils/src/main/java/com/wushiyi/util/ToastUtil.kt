@@ -8,9 +8,6 @@ import android.widget.Toast
  * toast工具类
  */
 private val toastContext by lazy { UtilInit.utilContext }
-//fun setToastContext(context: Context) {
-//    toastContext = context
-//}
 
 
 /**

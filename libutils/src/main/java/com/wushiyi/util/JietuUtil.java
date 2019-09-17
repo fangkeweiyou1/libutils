@@ -2,8 +2,10 @@ package com.wushiyi.util;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
+import android.support.annotation.RequiresApi;
 import android.view.View;
 import android.view.ViewTreeObserver;
 
@@ -22,6 +24,7 @@ public class JietuUtil {
             return;
         }
         v.getViewTreeObserver().addOnGlobalLayoutListener(new ViewTreeObserver.OnGlobalLayoutListener() {
+            @RequiresApi(api = Build.VERSION_CODES.JELLY_BEAN)
             @Override
             public void onGlobalLayout() {
                 v.getViewTreeObserver().removeOnGlobalLayoutListener(this);

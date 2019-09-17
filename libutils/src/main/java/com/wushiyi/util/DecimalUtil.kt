@@ -25,11 +25,11 @@ object DecimalUtil {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        return number1
+        return ""
     }
 
     /**
-     * 金钱减法
+     * 两个数字相减
      * @param number1 数字1
      * @param number2 数字2
      * @return 返回两个数字之差,异常就返回数字1
@@ -42,11 +42,11 @@ object DecimalUtil {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        return number1
+        return ""
     }
 
     /**
-     * 金钱乘法
+     * 两个数字相乘
      * @param number1 数字1
      * @param number2 数字2
      * @return 返回两个数字相乘,异常就返回数字1
@@ -60,11 +60,11 @@ object DecimalUtil {
             e.printStackTrace()
         }
 
-        return number1
+        return ""
     }
 
     /**
-     * 金钱乘法
+     * 两个数字相乘
      *
      * @param number1    乘数
      * @param number2    被乘数
@@ -80,11 +80,11 @@ object DecimalUtil {
         } catch (e: Exception) {
             e.printStackTrace()
         }
-        return number1
+        return ""
     }
 
     /**
-     * 金钱除法
+     * 两个数字相除
      * @param number1 数字1
      * @param number2 数字2
      * @return 返回两个数字相除,异常就返回数字1
@@ -98,7 +98,7 @@ object DecimalUtil {
             e.printStackTrace()
         }
 
-        return number1
+        return ""
     }
 
 
