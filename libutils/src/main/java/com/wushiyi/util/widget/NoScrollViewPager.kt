@@ -9,8 +9,8 @@ import android.view.MotionEvent
  * Created by zhangyuncai on 2019/6/27.
  * 禁止滑动的ViewPager,这个类谷歌已经新推出了ViewPager2实现了,可以去参考
  */
-open class NoScrollViewPager(context: Context, attrs: AttributeSet?) : ViewPager(context) {
-    constructor(context: Context) : this(context, null)
+open class NoScrollViewPager(context: Context, attrs: AttributeSet?) : ViewPager(context, attrs) {
+    constructor(context: Context):this(context,null)
 
     private var isScroll = false
 

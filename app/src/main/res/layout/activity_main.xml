@@ -7,22 +7,10 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/bt_main_zh"
-        android:text="设置中文"
+    <com.wushiyi.util.widget.NoScrollViewPager
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <Button
-        android:id="@+id/bt_main_en"
-        android:text="设置英文"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:id="@+id/vp_main"
+        android:layout_height="match_parent"/>
 
-
-    <TextView
-        android:id="@+id/tv_main_test"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/china" />
 
 </LinearLayout>
