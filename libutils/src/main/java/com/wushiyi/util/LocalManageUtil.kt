@@ -4,7 +4,6 @@ import android.annotation.TargetApi
 import android.content.Context
 import android.os.Build
 import android.os.LocaleList
-import android.support.annotation.RequiresApi
 import java.util.*
 
 /**
@@ -20,7 +19,6 @@ intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_CLEAR_TASK
 //        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
 getContext().startActivity(intent);
  */
-@RequiresApi(Build.VERSION_CODES.JELLY_BEAN_MR1)
 object LocalManageUtil {
     private val localManageContext by lazy { UtilInit.utilContext }
     //TAG 标记
